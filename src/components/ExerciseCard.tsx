@@ -15,7 +15,7 @@ import {
   DialogContent,
   DialogActions,
   TextField,
-  Grid,
+  Stack,
 } from '@mui/material';
 import {
   Delete as DeleteIcon,
@@ -123,29 +123,25 @@ export function ExerciseCard({
       <Dialog open={showAddSetDialog} onClose={() => setShowAddSetDialog(false)}>
         <DialogTitle>Add Set to {exercise.name}</DialogTitle>
         <DialogContent>
-          <Grid container spacing={2} sx={{ mt: 1 }}>
-            <Grid item xs={6}>
-              <TextField
-                label="Reps"
-                type="number"
-                value={newSetReps}
-                onChange={(e) => setNewSetReps(e.target.value)}
-                fullWidth
-                required
-                inputProps={{ min: 1 }}
-              />
-            </Grid>
-            <Grid item xs={6}>
-              <TextField
-                label="Weight (kg)"
-                type="number"
-                value={newSetWeight}
-                onChange={(e) => setNewSetWeight(e.target.value)}
-                fullWidth
-                inputProps={{ min: 0, step: 0.5 }}
-              />
-            </Grid>
-          </Grid>
+          <Stack direction="row" spacing={2} sx={{ mt: 2 }}>
+            <TextField
+              label="Reps"
+              type="number"
+              value={newSetReps}
+              onChange={(e) => setNewSetReps(e.target.value)}
+              fullWidth
+              required
+              inputProps={{ min: 1 }}
+            />
+            <TextField
+              label="Weight (kg)"
+              type="number"
+              value={newSetWeight}
+              onChange={(e) => setNewSetWeight(e.target.value)}
+              fullWidth
+              inputProps={{ min: 0, step: 0.5 }}
+            />
+          </Stack>
         </DialogContent>
         <DialogActions>
           <Button onClick={() => setShowAddSetDialog(false)}>Cancel</Button>

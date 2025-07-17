@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useCallback } from 'react';
 import { Exercise, Set } from '@/types/exercise';
 import { useLocalStorage } from './useLocalStorage';
 
